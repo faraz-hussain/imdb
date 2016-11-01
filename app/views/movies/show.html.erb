@@ -29,3 +29,61 @@
     </div>
   </div>
 </div>
+
+<!-- A Movie has many characters -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Characters
+      </li>
+
+      <% @movie.characters.each do |character| %>
+        <li class="list-group-item">
+          <a href="/characters/<%= character.id %>">
+            <%= character.movie_id %>
+          </a>
+          <a href="/characters/<%= character.id %>" class="btn btn-primary">
+            Show
+          </a>
+          <a href="/characters/<%= character.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_character/<%= character.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Movie has many actors -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Actors
+      </li>
+
+      <% @movie.actors.each do |actor| %>
+        <li class="list-group-item">
+          <a href="/actors/<%= actor.id %>">
+            <%= actor.name %>
+          </a>
+          <a href="/actors/<%= actor.id %>" class="btn btn-primary">
+            Show
+          </a>
+          <a href="/actors/<%= actor.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_actor/<%= actor.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
